@@ -46,4 +46,32 @@ Commands for creating bucket in GCS
         --parameters inputTopic=projects/[PROJECT_ID]/topics/[TOPIC_NAME],outputTable=[PROJECT_ID]:[DATASET_ID].[TABLE_NAME] \
         --project [PROJECT_ID] \
         --temp-location gs://[BUCKET_NAME]/temp/
+
+* Send sample message to pubsub from Command Line (Also can publish messages from UI)
+
+          for i in {1..10}
+          do
+            gcloud pubsub topics publish [TOPIC_NAME] --message '[BIQQUERY_SCHEMA_FORMAT]'
+            sleep 1
+           done
+
+Examaple:
+
+        for i in {1..10}
+        do
+          gcloud pubsub topics publish streaming-pubsubtobq --message '{"data": "Sample Input Data '"$i"'"}'
+          sleep 1
+        done
+
+* Query to see pubsub data in BigQuery (Make sure dataflow job is up and running to send data into BigQuery Table)
+
+        bq query --nouse_legacy_sql 'SELECT * FROM `[PROJECT_ID].[DATASET_ID].[TABLE_NAME]` LIMIT 10'
+        bq query --nouse_legacy_sql 'SELECT * FROM `dataflow-pipeline-446610:streaming_data_bq.stream_pubsub_tobq` LIMIT 10'
+
   
+If Pub/Sub data fails, it gets updated to [TABLE_NAME]_error_records
+
+
+
+
+
