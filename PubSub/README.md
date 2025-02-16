@@ -1,8 +1,16 @@
 # Pub/Sub, DataFlow, Bigquery Streaming Data Pipeline
 
 
+# Requirements
 
-Commands for creating bucket in GCS 
+
+* Package installs 
+
+          pip install google-cloud-bigquery
+          pip install google-cloud-pubsub
+          pip install apache-beam[gcp]
+          pip install google-cloud-storage
+          pip install google-auth google-auth-oauthlib google-auth-httplib2
 
 * Authenticate to google cloud
 
@@ -16,7 +24,10 @@ Commands for creating bucket in GCS
               storage.googleapis.com \
               bigquery.googleapis.com \
               pubsub.googleapis.com \
-              dataflow.googleapis.com  
+              dataflow.googleapis.com
+
+# Commands for GCS, Big Query, Dataflow, Pubsub
+
 * Create bucket
 
       gsutil mb -l US gs://[BUCKET_NAME]/
