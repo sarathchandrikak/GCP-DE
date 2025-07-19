@@ -287,3 +287,8 @@ When you place new DAG code into the Airflow **DAGs directory**, the following s
 * The **queue system** is pluggable and scalable (Celery, Kubernetes, etc.).
 
 ---
+
+## Sensors 
+
+A Sensor is a particular operator that waits for a condition to be true. If the condition is true, the task is marked successful, and the next task runs. If the condition is false, the sensor waits for another interval until it times out and fails.
+
