@@ -83,9 +83,6 @@ task1.set_downstream(task2)  # also equivalent
 | TaskInstance | A specific run of a task within a DAG run        |
 
 ---
-You're on the right track! Let's organize and expand this into a **complete, clear explanation** of the **core components of Apache Airflow**, with corrected terminology and structure where needed.
-
----
 
 ## 🚀 Apache Airflow Core Components (Detailed)
 ---
